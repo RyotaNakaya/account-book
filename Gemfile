@@ -29,6 +29,20 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'mysql2'
+# bootstrap
+gem 'bootstrap', '~> 4.1.3'
+gem 'jquery-rails'
+gem 'autoprefixer-rails', '8.6.5'
+# チャートを使うためのgem
+gem 'chart-js-rails', '~> 0.1.4'
+gem "chartkick"
+# カレンダー
+gem 'momentjs-rails'
+gem 'fullcalendar-rails'
+
+# ユーザー認証
+gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

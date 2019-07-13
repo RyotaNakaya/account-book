@@ -1,0 +1,109 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.main-content {
+  margin-top: 16px;
+}
+
+.card {
+  margin-bottom: 16px;
+}
+
+.card-body {
+  padding-bottom: 0px;
+}
+
+.create-data-area-label {
+  width: 96px;
+  color: #62747b;
+}
+
+.history-area-header {
+  background-color: lightgray;
+}
+
+.chart-detail-area {
+  // background-color: lightgray;
+  margin: 16px;
+  padding: 0px;
+  // padding: 16px;
+}
+
+.chart-area {
+  // background-color: lightgray;
+  margin: 16px;
+  padding: 0px;
+  // padding: 16px;
+}
+
+#footer {
+  // position: fixed;
+  bottom: 0;
+  width: 100%;
+  // height: 100px;
+}
+
+#indexContainer {
+  display: grid;
+  margin: 16px 0px;
+  min-height: 100vh;
+  grid-template-rows: 500px 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-areas:
+      "nav    main   calendar-area "
+      "nav    main   side  ";
+}
+
+// body > * {
+//     margin: 3px;
+//     padding: 10px;
+// }
+// h1 {
+//     grid-area: title;
+// }
+main {
+  grid-area: main;
+}
+
+nav {
+  grid-area: nav;
+}
+
+#side {
+  grid-area: side;
+}
+
+#calendarArea {
+  grid-area: calendar-area;
+  margin: 0px 40px;
+}
+
+#historyContainer {
+  display: grid;
+  margin: 16px 0px;
+  min-height: 100vh;
+  grid-template-rows: 500px 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-areas:
+      "nav    main   calendar-area "
+      "nav    main   side  ";
+}
+
+#editContainer {
+  display: grid;
+  margin: 16px 0px;
+  min-height: 100vh;
+  grid-template-rows: 500px 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-areas:
+      "nav    main   calendar-area "
+      "nav    main   side  ";
+}
+
+.history-data-remark {
+  max-width: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}

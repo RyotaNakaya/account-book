@@ -1,0 +1,115 @@
+<div id="indexContainer">
+    <main>
+        <h1>My 家計簿</h1>
+        <div class="main-content">
+            <div class="card">
+                <div class="card-header bg-info">■新規記帳</div>
+                <div class="card-body">
+                    <div class="create-data-area form-group">
+                        <%= form_for(@newpostdata, url:{controller:"posts", action:"create"}) do |form| %>
+                        <div class="form-group" style="float: left; margin-right: 16px;">
+                            <label class="create-data-area-label">カテゴリ</label>
+                            <%= select "", "ctg_select", @ctg_array, {}, class:"form-control input-size-s" %>
+                        </div>
+                        <div class="form-group" style="float: left; margin-right: 16px;">
+                            <label class="create-data-area-label">サブカテゴリ</label>
+                            <%= select "", "sub_ctg_select", @sub_ctg_array, {},  class: "form-control input-size-s"  %>
+                        </div>
+                        <div class="form-group" style="float: left; margin-right: 16px; display:none;">
+                            <label class="create-data-area-label">サブカテゴリID</label>
+                            <%= form.number_field :category_id, :class => "form-control input-size-s" %>
+                        </div>
+                        <div class="form-group" style="float: left; margin-right: 16px;">
+                            <label class="create-data-area-label">金額</label>
+                            <%= form.number_field :amount, :class => "form-control input-size-s" %>
+                        </div>
+                        <div class="form-group">
+                            <label class="create-data-area-label">日付</label>
+                            <%= form.date_field :booked_date, value: Time.now.strftime("%Y-%m-%d"), :class => "form-control input-size-s" %>
+                        </div>
+                        <div class="form-group" style="width: 632px;">
+                            <label class="create-data-area-label">備考</label>
+                            <%= form.text_area :remark, :class => "form-control", size: "70x2"  %>
+                        </div>
+                        <div class="form-group">
+                            <%# <label class="create-data-area-label"></label> %>
+                            <%= form.submit "記録する", :class => "btn btn-primary" %>
+                            <button class="btn btn-outline-primary" id="grid_input">まとめて入力</button>
+                        </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-header bg-warning">■入力履歴(最新5件)</div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <tr class="history-area-header">
+                            <th>日付</th>
+                            <th>カテゴリ</th>
+                            <th>サブカテゴリ</th>
+                            <th>金額</th>
+                            <th>備考</th>
+                        </tr>
+                        <% @postdata.each do |obj|%>
+                        <tr>
+                            <td class="history-data-date">
+                                <%= obj.booked_date.strftime("%Y-%m-%d") %>
+                            </td>
+                            <td class="history-data-category">
+                                <%= obj.category != nil ? obj.category.parent.ctg_name : "none" %>
+                            </td>
+                            <td class="history-data-sub-category">
+                                <%= obj.category != nil ? obj.category.ctg_name : "none" %>
+                            </td>
+                            <td class="history-data-amount text-right">
+                                <%= obj.amount %>円
+                            </td>
+                            <td class="history-data-remark">
+                                <%= obj.remark %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </table>
+                    <p class="text-right"><a href="/posts/history">もっと見る</a></p>
+                </div>
+            </div>
+
+            <% if false %>
+            <div class="card">
+                <div class="card-header bg-warning">カテゴリ別チャート</div>
+                <div class="card-body">
+                    <h2>
+                        <%= form_tag({controller: "posts", action:"change_month_chart"}, remote: true) do %>
+                        <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm change-month", :id => "prev_month", :value => "prev_month" do %>
+                        <i class="fas fa-angle-left"></i>
+                        <% end %>
+                        <%# <button class="btn btn-default btn-sm change-month" id="prev_month"><i class="fas fa-angle-left"></i></button> %>
+                        <%= hidden_field_tag :this_year, @year %>
+                        <%= label :year, @year, :id => "this_year_label" %>
+                        <span>年</span>
+                        <%= hidden_field_tag :this_month, @month %>
+                        <%= label :month, @month, :id => "this_month_label" %>
+                        <span>月</span>
+                        <%# <button class="btn btn-default btn-sm change-month" id="next_month"><i class="fas fa-angle-right"></i></button> %>
+                        <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm change-month", :id => "next_month", :value => "next_month" do %>
+                        <i class="fas fa-angle-right"></i>
+                        <% end %>
+                        <% end %>
+                    </h2>
+                    <div class="row" id="chart_area">
+                        <%= render template:"posts/_chart_insert" %>
+                        <!--グラフ描画領域 -->
+                    </div>
+                </div>
+            </div>
+            <% end %>
+    </main>
+    <nav></nav>
+    <%# <aside id="calendarArea">
+        <div id="calendar"></div>
+    </aside> %>
+    <aside id="side"></aside>
+</div>

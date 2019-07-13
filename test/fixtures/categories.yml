@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ctg_name: MyString
+  disp_orderinteger: MyString
+  sub_flg: false
+  parent_id: 1
+  user_id: 1
+
+two:
+  ctg_name: MyString
+  disp_orderinteger: MyString
+  sub_flg: false
+  parent_id: 1
+  user_id: 1

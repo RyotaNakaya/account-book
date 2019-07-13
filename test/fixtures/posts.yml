@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category_id: 1
+  amount: 1
+  booked_date: 2019-07-12
+  unit: 1
+  currency_unit: 1
+  exchange_rate: 1
+  remark: MyText
+  store: MyText
+
+two:
+  category_id: 1
+  amount: 1
+  booked_date: 2019-07-12
+  unit: 1
+  currency_unit: 1
+  exchange_rate: 1
+  remark: MyText
+  store: MyText
