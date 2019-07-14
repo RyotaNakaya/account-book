@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>AccountBook</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>
+    <%= @title %>
+  </title>
+  <%= csrf_meta_tags %>
 
-  <body>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+</head>
+
+<body style="padding-top: 4.5rem;">
+  <%= render template:"layouts/common_header" %>
+  <div>
     <%= yield %>
-  </body>
+  </div>
+  <div id="footer">
+    <%= render template:"layouts/common_footer" %>
+  </div>
+</body>
+
 </html>

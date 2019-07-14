@@ -1,0 +1,6 @@
+// debugger
+$("#chart_area").html("<%= escape_javascript(render :partial=>'chart_insert', :object=>@chart_datas) %>");
+$("#this_year_label").text("<%= @year %>")
+$("#this_month_label").text("<%= @month %>")
+$("#this_year").val("<%= @year %>")
+$("#this_month").val("<%= @month %>")

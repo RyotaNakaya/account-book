@@ -22,19 +22,6 @@ class PostsController < ApplicationController
     # return postdata
   end
 
-  def show_by_month(y, m)
-    postdata = Post.where("strftime('%Y', booked_date) = ? AND strftime('%m', booked_date) = ?", y.to_s, m.to_s).order("booked_date DESC, created_at DESC")
-    return postdata
-  end
-
-  def history
-    @title = "家計簿履歴"
-    # @year_month = Date.today.strftime("%Y-%m")
-    @year = Date.today.strftime("%Y")
-    @month = Date.today.strftime("%m")
-    @allpostdata = show_by_month(@year, @month)
-  end
-
   def create
     if request.post? then
       puts newpostdata_params
@@ -106,19 +93,6 @@ class PostsController < ApplicationController
   def change_ctg
     @ctg_array = Category.get_sub_category_array(params[:ctg_id].to_i)
     render json: { ctg_array: @ctg_array}
-  end
-
-  # Ajax処理で月の変更後の結果を取得する
-  def change_month
-    v = params[:button]
-    y = params[:this_year].to_i
-    m = params[:this_month].to_i
-    # ここで変更後の月と年を取得
-    after_data = get_after_month(v, y, m)
-    @year = after_data[:year]
-    @month = after_data[:month]
-    @allpostdata = show_by_month(@year, @month)
-    render
   end
 
   # Ajax処理で月の変更後のグラフ結果を取得する

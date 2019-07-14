@@ -1,0 +1,6 @@
+// debugger
+$("#postdata_list").html("<%= escape_javascript(render :partial=>'history_insert', :object=>@allpostdata) %>");
+$("#this_year_label").text("<%= @year %>")
+$("#this_month_label").text("<%= @month %>")
+$("#this_year").val("<%= @year %>")
+$("#this_month").val("<%= @month %>")
