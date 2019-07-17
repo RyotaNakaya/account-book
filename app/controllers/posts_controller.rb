@@ -42,13 +42,13 @@ class PostsController < ApplicationController
   def update
     obj = Post.find(params[:id])
     obj.update(postdata_params)
-    redirect_to "/post/history"
+    redirect_to "/history"
   end
 
   def delete
     obj = Post.find(params[:id])
     obj.destroy
-    redirect_to "/post/history"
+    redirect_to "/history"
   end
 
   def grid_input
@@ -137,7 +137,7 @@ class PostsController < ApplicationController
   end
 
   def postdata_params
-    params.require(:Post).permit(:category_id, :amount, :booked_date, :remark)
+    params.require(:post).permit(:category_id, :amount, :booked_date, :remark)
   end
 
 end

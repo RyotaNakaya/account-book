@@ -16,14 +16,14 @@
 $(document).ready ->
     $(document).on 'click', '.del-data', (e)->
         if (confirm("このデータを削除しますか？"))
-            document.location = "/posts/delete/" + $(this).context.attributes.val.value
+            document.location = "/posts/" + $(this).context.attributes.val.value + "/destroy"
             return false;
 
     $(document).on 'click', '.edit-data', (e)->
-        window.location = "/posts/edit/" + $(this).context.attributes.val.value
+        window.location = "/posts/" + $(this).context.attributes.val.value + "/edit"
         return false;
 
 $(document).on 'turbolinks:load', ->
     $(".update-cancel").on "click", ->
-        window.location = "/history/index/"
+        window.location = "/history"
         return false;

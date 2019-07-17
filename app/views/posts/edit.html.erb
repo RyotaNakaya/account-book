@@ -1,0 +1,42 @@
+<div class="container">
+    <h1>家計簿(修正画面)</h1>
+    <div class="main-content">
+        <div class="card">
+            <div class="card-header bg-warning">■修正</div>
+            <div class="card-body">
+                <div class="create-data-area form-group">
+                    <%= form_for(@postdata, url:{controller:"posts", action:"update"}) do |form| %>
+                    <div class="form-group form-inline">
+                        <label class="create-data-area-label">カテゴリ</label>
+                        <%= select "", "ctg_select", @ctg_array, {:selected => @selected_ctg_id}, class:"form-control input-size-s" %>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label class="create-data-area-label">サブカテゴリ</label>
+                        <%= select "", "sub_ctg_select", @sub_ctg_array, {:selected => @selected_sub_ctg_id},  class: "form-control input-size-s"  %>
+                    </div>
+                    <div class="form-group" style="display:none;">
+                        <label class="create-data-area-label">サブカテゴリID</label>
+                        <%= form.number_field :category_id, :class => "form-control input-size-s" %>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label class="create-data-area-label">金額</label>
+                        <%= form.number_field :amount, :class => "form-control" %>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label class="create-data-area-label">日付</label>
+                        <%= form.date_field :booked_date, :class => "form-control" %>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label class="create-data-area-label">備考</label>
+                        <%= form.text_area :remark, :class => "form-control", size: "70x2"  %>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label class="create-data-area-label"></label>
+                        <%= form.submit "保存する", :class => "btn btn-primary", :style =>"margin-right: 16px" %>
+                        <button class="update-cancel btn btn-danger">キャンセル</button>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>

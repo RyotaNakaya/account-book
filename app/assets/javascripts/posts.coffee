@@ -2,25 +2,25 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
-    $(document).on 'click', '.del-data', (e)->
-        if (confirm("このデータを削除しますか？"))
-            document.location = "/home/delete/" + $(this).context.attributes.val.value
-            return false;
+# $(document).ready ->
+#     $(document).on 'click', '.del-data', (e)->
+#         if (confirm("このデータを削除しますか？"))
+#             document.location = "/home/delete/" + $(this).context.attributes.val.value
+#             return false;
 
-    $(document).on 'click', '.edit-data', (e)->
-        window.location = "/home/edit/" + $(this).context.attributes.val.value
-        return false;
+#     $(document).on 'click', '.edit-data', (e)->
+#         window.location = "/home/edit/" + $(this).context.attributes.val.value
+#         return false;
 
-$(document).on 'turbolinks:load', ->
-    $(".update-cancel").on "click", ->
-        window.location = "/home/history/"
-        return false;
+# $(document).on 'turbolinks:load', ->
+#     $(".update-cancel").on "click", ->
+#         window.location = "/home/history/"
+#         return false;
 
-$(document).on 'turbolinks:load', ->
-    $("#grid_input").on "click", ->
-        window.location = "/home/grid_input/"
-        return false;
+# $(document).on 'turbolinks:load', ->
+#     $("#grid_input").on "click", ->
+#         window.location = "/home/grid_input/"
+#         return false;
 
 
 
