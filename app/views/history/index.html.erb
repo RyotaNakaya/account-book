@@ -20,6 +20,33 @@
       <% end %>
       <% end %>
     </h2>
+    <div class="card">
+        <div class="card-header bg-warning">カテゴリ別チャート</div>
+        <div class="card-body">
+            <h2>
+                <%= form_tag({controller: "history", action:"change_month_chart"}, remote: true) do %>
+                <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm change-month", :id => "prev_month", :value => "prev_month" do %>
+                <i class="fas fa-angle-left"></i>
+                <% end %>
+                <%# <button class="btn btn-default btn-sm change-month" id="prev_month"><i class="fas fa-angle-left"></i></button> %>
+                <%= hidden_field_tag :this_year, @year %>
+                <%= label :year, @year, :id => "this_year_label" %>
+                <span>年</span>
+                <%= hidden_field_tag :this_month, @month %>
+                <%= label :month, @month, :id => "this_month_label" %>
+                <span>月</span>
+                <%# <button class="btn btn-default btn-sm change-month" id="next_month"><i class="fas fa-angle-right"></i></button> %>
+                <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm change-month", :id => "next_month", :value => "next_month" do %>
+                <i class="fas fa-angle-right"></i>
+                <% end %>
+                <% end %>
+            </h2>
+            <div class="row" id="chart_area">
+                <%= render template:"history/_chart_insert" %>
+                <!--グラフ描画領域 -->
+            </div>
+        </div>
+    </div>
     <div id="postdata_list">
         <%= render template:"history/_history_insert" %>
     </div>

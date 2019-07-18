@@ -18,9 +18,9 @@ Rails.application.routes.draw do
   # patch "posts/edit/:id", to: "posts#update"
   # get "home/delete/:id", to: "home#delete"
   # get "category/index", to: 'category_config#index'
-  # get "change_ctg", to: 'home#change_ctg'
+  get "change_ctg", to: 'posts#change_ctg'
   get "change_month", to: 'history#change_month'
   post "change_month", to: 'history#change_month'
-  # post "change_month_chart", to: 'home#change_month_chart'
+  post "change_month_chart", to: 'history#change_month_chart'
   # get "home/grid_input", to: "home#grid_input"
 end

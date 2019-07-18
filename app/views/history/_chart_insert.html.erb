@@ -1,0 +1,23 @@
+<div class="col-sm-5 col-lg-5 chart-area">
+    <%= pie_chart @chart_datas %>
+</div>
+<div class="col-sm-5 col-lg-5 chart-detail-area">
+    <table class="table table-bordered">
+        <tr>
+            <th>カテゴリ</th>
+            <th>金額</th>
+            <th>比率</th>
+        </tr>
+        <% @chart_datas.each do |obj| %>
+        <tr>
+            <td class="category-label">
+                <%= obj[0] %>
+            </td>
+            <td class="amount-label text-right">
+                <%= obj[1] %>円</td>
+            <td class="rate-label text-right">
+                <%= obj[2] %>%</td>
+        </tr>
+        <% end %>
+    </table>
+</div>
